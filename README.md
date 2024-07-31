@@ -2,7 +2,7 @@ haldataset:
 https://contestfiles.storage.yandexcloud.net/companies/76b19c3f3c417fc4f9623ba4d00cbde8/train.csv?roistat_visit=1415538
 
 
-
+<code>
 def draw_graph(buyeruid):
     print(buyeruid)
     #ons = oneclientline_df.iloc[loi]
@@ -45,3 +45,5 @@ for loi in ['3a599c56-fec9-11e8-80d0-0cc47aabb0b2',
             '35e06b19-1363-11e6-b53d-001d72335c95',
             '120986b9-1bc8-11e8-80c9-0cc47aabb0b2']:
     draw_graph(loi)
+
+</code>
