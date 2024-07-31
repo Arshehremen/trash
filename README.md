@@ -1,7 +1,7 @@
 haldataset:
 https://contestfiles.storage.yandexcloud.net/companies/76b19c3f3c417fc4f9623ba4d00cbde8/train.csv?roistat_visit=1415538
 
-
+'''
 <code>
 def draw_graph(buyeruid):
     print(buyeruid)
@@ -47,3 +47,4 @@ for loi in ['3a599c56-fec9-11e8-80d0-0cc47aabb0b2',
     draw_graph(loi)
 
 </code>
+'''
