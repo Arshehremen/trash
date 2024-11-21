@@ -54,3 +54,34 @@ def duplicate_slide(pres, index):
 
     return copied_slide
 
+
+
+######################
+
+
+from pptx import Presentation
+
+# Открываем исходную презентацию
+prs_source = Presentation('source.pptx')
+
+# Открываем целевую презентацию
+prs_target = Presentation()  # Создаем новую пустую презентацию
+
+# Получаем индекс слайда, который хотим скопировать
+slide_index = 0  # Индекс первого слайда
+
+# Копируем слайд
+slide_to_copy = prs_source.slides[slide_index]
+
+# Вставляем слайд в целевую презентацию
+blank_layout = prs_target.slide_layouts[len(prs_target.slide_layouts)-1]  # Берём последний макет
+copied_slide = prs_target.slides.add_slide(blank_layout)
+
+# Переносим все элементы с исходного слайда на новый
+for shape in slide_to_copy.shapes:
+    copied_slide.shapes._spTree.remove(shape._element)
+    copied_slide.shapes._spTree.insert_element_before(shape._element, 'p:extLst')
+
+# Сохраняем целевую презентацию
+prs_target.save('new_target.pptx')  # Имя нового файла
+
