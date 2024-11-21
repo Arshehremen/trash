@@ -1,0 +1,30 @@
+# pip install python-pptx
+
+from pptx import Presentation
+
+# Открываем существующую презентацию
+prs = Presentation('template.pptx')
+
+# Получаем шаблон слайда
+slide_layout = prs.slide_layouts[0]
+
+# Данные для подстановки
+data = [
+    ['Значение 1', 'Значение 2', 'Значение 3', 'Значение 4'],
+    ['Другое значение 1', 'Другое значение 2', 'Другое значение 3', 'Другое значение 4'],
+    # Добавьте больше данных по необходимости...
+]
+
+for values in data:
+    slide = prs.slides.add_slide(slide_layout)
+    
+    # Подставляем значения в нужные места
+    shapes = slide.shapes
+    
+    shapes[0].text_frame.text = values[0]  # Первое значение
+    shapes[1].text_frame.text = values[1]  # Второе значение
+    shapes[2].text_frame.text = values[2]  # Третье значение
+    shapes[3].text_frame.text = values[3]  # Четвертое значение
+
+# Сохраняем новую презентацию
+prs.save('new_presentation.pptx')
